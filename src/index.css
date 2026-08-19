@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@import "./Utility/Global.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-image: linear-gradient(135deg, #ffffff, #7a85bc);
+  font-family: "Manrope", sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Mode Body & Background */
+html.dark body {
+  background-image: linear-gradient(135deg, #0f172a, #1e1b4b);
+  color: #f8fafc;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input,
+button,
+textarea,
+select {
+  outline: none;
+  border: none;
+}
+
+button {
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  cursor: pointer;
+  scale: 1.05;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:active {
+  scale: 0.95;
+  transition: all 0.1s ease-in-out;
+}
+
+/* Styled subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8387C3;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #534DB4;
+}
+
+/* Smooth 1.5s Page & Staggered Text Animations */
+@keyframes fadeInPage {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes textFadeSlow {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeInPage 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-textFade {
+  animation: textFadeSlow 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-textFade-delay-1 {
+  animation: textFadeSlow 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+  opacity: 0;
+}
+
+.animate-textFade-delay-2 {
+  animation: textFadeSlow 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  opacity: 0;
+}
+
+.animate-textFade-delay-3 {
+  animation: textFadeSlow 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+  opacity: 0;
+}
+
+/* Smooth Floating Animations for 3D Hero Visual */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-3deg);
+  }
+}
+
+@keyframes floatPulse {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.06);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 6s ease-in-out infinite 1s;
+}
+
+.animate-float-pulse {
+  animation: floatPulse 4.5s ease-in-out infinite 0.5s;
+}
