@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import sebastianImg from '../../assets/templates/sebastian_bennett.png';
 import chrisImg from '../../assets/templates/chris_johnson.png';
 import alexanderImg from '../../assets/templates/alexander_taylor.png';
+import specialImg from '../../assets/templates/Special_Templete2.png';
 
 // Dynamic Array of Template Objects for easy scalability
 export const TEMPLATES_DATA = [
@@ -38,6 +39,17 @@ export const TEMPLATES_DATA = [
       { text: 'Engineering', style: 'bg-[#FCA5A5] text-[#991B1B]' },
       { text: 'Classic', style: 'bg-slate-200/90 dark:bg-slate-800 text-slate-700 dark:text-slate-300' }
     ]
+  },
+  {
+    id: 'special-template',
+    name: 'Special Template',
+    category: '75% ATS Approved',
+    description: 'Professional 75% ATS-approved two-page template designed for maximum recruiter readability and parser pass rates.',
+    image: specialImg,
+    badges: [
+      { text: '75% ATS Approved', style: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 font-extrabold' },
+      { text: '2-Page Layout', style: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300' }
+    ]
   }
 ];
 
@@ -69,7 +81,7 @@ const Templete = ({ isDarkMode, onSelectTemplate }) => {
       </div>
 
       {/* ================= DYNAMIC TEMPLATES GRID (Mapped from TEMPLATES_DATA) ================= */}
-      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 mb-16 animate-textFade-delay-2">
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16 animate-textFade-delay-2">
         {TEMPLATES_DATA.map((template) => (
           <div 
             key={template.id}
@@ -79,10 +91,10 @@ const Templete = ({ isDarkMode, onSelectTemplate }) => {
                 : 'white medium-box-shadow'
             }`}
           >
-            <div className="space-y-6">
+            <div className="space-y-5">
               
               {/* Proportional Centered Template Image Frame */}
-              <div className="w-full max-w-[200px] h-[230px] mx-auto rounded-3xl flex items-center justify-center border shadow-inner relative overflow-hidden">
+              <div className="w-full max-w-[190px] h-[220px] mx-auto rounded-3xl flex items-center justify-center border shadow-inner relative overflow-hidden bg-slate-50 dark:bg-slate-800/50">
                 <img 
                   src={template.image} 
                   alt={`${template.name} Resume Template`} 
@@ -90,14 +102,23 @@ const Templete = ({ isDarkMode, onSelectTemplate }) => {
                 />
               </div>
 
+              {/* Badges */}
+              <div className="flex flex-wrap items-center gap-1.5 justify-center">
+                {template.badges.map((b, i) => (
+                  <span key={i} className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${b.style}`}>
+                    {b.text}
+                  </span>
+                ))}
+              </div>
+
               {/* Template Info */}
-              <div className="text-left space-y-2 pt-2">
-                <h3 className={`text-xl font-bold transition-colors ${
+              <div className="text-left space-y-1.5 pt-1">
+                <h3 className={`text-lg font-bold transition-colors ${
                   isDarkMode ? 'text-white' : 'text-[#112D55]'
                 }`}>
                   {template.name}
                 </h3>
-                <p className={`text-xs md:text-sm leading-relaxed font-medium transition-colors ${
+                <p className={`text-xs leading-relaxed font-medium transition-colors ${
                   isDarkMode ? 'text-slate-300' : 'text-slate-600'
                 }`}>
                   {template.description}

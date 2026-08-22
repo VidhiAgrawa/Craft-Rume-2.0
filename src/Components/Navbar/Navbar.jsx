@@ -12,6 +12,7 @@ const Navbar = ({ isDarkMode, toggleTheme, downloadedFiles = [], user, onLogout 
     { name: 'Templates', path: '/templates' },
     { name: 'Downloads', path: '/download' },
     { name: 'About', path: '/about' },
+    { name: 'Parse & Refine', path: '/parse' },
   ];
 
   const isActivePath = (path) => {
